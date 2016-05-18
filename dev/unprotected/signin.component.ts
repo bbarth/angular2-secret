@@ -1,5 +1,7 @@
 import {Component, OnInit} from "angular2/core";
 import {FormBuilder, ControlGroup, Validators} from "angular2/common";
+import {Router} from "angular2/router";
+import {AuthService} from "../shared/auth.service";
 
 @Component({
     template: `
@@ -22,9 +24,11 @@ export class SigninComponent implements OnInit {
     error = false;
     errorMessage = '';
 
-    constructor(private _fb: FormBuilder) {}
+    constructor(private _router: Router, private _fb: FormBuilder, private _authService: AuthService) {}
 
     onSignin() {
+        this._authService.signinUser(this.myForm.value);
+        this._router.navigate(['Protected']);
     }
 
     ngOnInit():any {

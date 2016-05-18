@@ -1,4 +1,5 @@
 import {Component} from "angular2/core";
+import {DataService} from "../shared/data.service";
 
 @Component({
     template: `
@@ -7,17 +8,28 @@ import {Component} from "angular2/core";
         <button (click)="onGetData()">Get Data</button>
         <br>
         <button (click)="onDeleteData()">Delete all Data</button>
-    `
+    `,
+    providers:[DataService]
 })
 // @CanActivate()
 export class SuperSecretComponent {
     dataset: any;
 
-    constructor () {}
+    constructor (private _dataService: DataService) {}
 
     onGetData() {
+        this._dataService.getAllData()
+            .subscribe(
+                data => this.dataset = JSON.stringify(data),
+                error => console.error(error)
+            );
     }
 
     onDeleteData() {
+        this._dataService.deleteAllData()
+            .subscribe(
+                data => this.dataset = '',
+                error => console.error(error)
+              );
     }
 }

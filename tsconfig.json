@@ -24,6 +24,14 @@
   },
   "files": [
     "./dev/app.component.ts",
-    "./dev/boot.ts"
+    "./dev/boot.ts",
+    "./dev/protected/protected.component.ts",
+    "./dev/protected/supersecret.component.ts",
+    "./dev/shared/auth.service.ts",
+    "./dev/shared/data.service.ts",
+    "./dev/shared/header.component.ts",
+    "./dev/shared/user.interface.ts",
+    "./dev/unprotected/signin.component.ts",
+    "./dev/unprotected/signup.component.ts"
   ]
 }

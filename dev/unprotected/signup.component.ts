@@ -1,5 +1,6 @@
 import {Component, OnInit} from "angular2/core";
 import {FormBuilder, ControlGroup, Validators, Control} from "angular2/common";
+import {AuthService} from "../shared/auth.service";
 
 @Component({
     template: `
@@ -29,10 +30,11 @@ export class SignupComponent implements OnInit {
     error = false;
     errorMessage = '';
 
-    constructor(private _fb:FormBuilder) {
+    constructor(private _fb:FormBuilder, private _authService: AuthService) {
     }
 
     onSignup() {
+        this._authService.signupUser(this.myForm.value);
     }
 
     ngOnInit():any {

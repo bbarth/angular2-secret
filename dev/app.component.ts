@@ -5,6 +5,7 @@ import {SigninComponent} from "./unprotected/signin.component";
 import {ProtectedComponent} from "./protected/protected.component";
 import {SuperSecretComponent} from "./protected/supersecret.component";
 import {HeaderComponent} from "./shared/header.component";
+import {AuthService} from "./shared/auth.service";
 
 @Component({
     selector: 'my-app',
@@ -22,6 +23,10 @@ import {HeaderComponent} from "./shared/header.component";
     {path: '/protected', name: 'Protected', component: ProtectedComponent},
     {path: '/supersecret', name: 'SuperSecret', component: SuperSecretComponent},
 ])
-export class AppComponent {
-    constructor(private _router: Router) {}
+export class AppComponent implements OnInit {
+    constructor(private _router: Router, private _authService: AuthService) {}
+
+    ngOnInit():any {
+        this._authService.getLoggedOutEvent().subscribe(() => this._router.navigate(['Signin']));
+    }
 }

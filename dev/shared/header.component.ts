@@ -1,5 +1,6 @@
 import {Component} from "angular2/core";
 import {ROUTER_DIRECTIVES, Router} from "angular2/router";
+import {AuthService} from "../shared/auth.service";
 
 @Component({
     selector: 'my-header',
@@ -23,11 +24,13 @@ import {ROUTER_DIRECTIVES, Router} from "angular2/router";
     directives: [ROUTER_DIRECTIVES]
 })
 export class HeaderComponent {
-    constructor() {}
+    constructor(private _authService: AuthService) {}
 
     isAuth() {
+      return this._authService.isAuthenticated();
     }
 
     logout() {
+        this._authService.logout();
     }
 }
