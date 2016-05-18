@@ -6,16 +6,17 @@ import {ProtectedComponent} from "./protected/protected.component";
 import {SuperSecretComponent} from "./protected/supersecret.component";
 import {HeaderComponent} from "./shared/header.component";
 import {AuthService} from "./shared/auth.service";
+import {AuthRouterOutlet} from "./shared/auth-router-outlet.directive";
 
 @Component({
     selector: 'my-app',
     template: `
         <my-header></my-header>
         <div class="main">
-            <router-outlet></router-outlet>
+            <auth-router-outlet></auth-router-outlet>
         </div>
     `,
-    directives: [HeaderComponent, ROUTER_DIRECTIVES]
+    directives: [HeaderComponent, AuthRouterOutlet]
 })
 @RouteConfig([
     {path: '/signup', name: 'Signup', component: SignupComponent, useAsDefault: true},

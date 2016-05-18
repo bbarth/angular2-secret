@@ -38,7 +38,7 @@ export class AuthService {
     logout() {
         localStorage.removeItem('token');
         this._userLoggedOut.emit(null);
-        console.log("Logged out Successfully");
+        console.log("Logged out successfully");
     }
 
     getLoggedOutEvent(): EventEmitter<any> {

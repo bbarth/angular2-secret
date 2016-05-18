@@ -27,6 +27,7 @@
     "./dev/boot.ts",
     "./dev/protected/protected.component.ts",
     "./dev/protected/supersecret.component.ts",
+    "./dev/shared/auth-router-outlet.directive.ts",
     "./dev/shared/auth.service.ts",
     "./dev/shared/data.service.ts",
     "./dev/shared/header.component.ts",
