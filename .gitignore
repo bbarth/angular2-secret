@@ -10,3 +10,4 @@ src/css
 *.bck
 *.js
 *.map
+dev/shared/auth.service.ts*
